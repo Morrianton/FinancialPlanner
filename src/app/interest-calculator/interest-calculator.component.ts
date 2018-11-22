@@ -21,7 +21,7 @@ result = this.result;
     this.timesCompounded = Number(interestForm.value.timesCompounded);
     this.term = Number(interestForm.value.term);
 
-    this.result = this.principle * Math.pow((1 + (this.interest/this.timesCompounded)),(this.timesCompounded * this.term))
+    this.result = (this.principle * Math.pow((1 + (this.interest/this.timesCompounded)),(this.timesCompounded * this.term))).toFixed(2);
   }
 
   ngOnInit() {
