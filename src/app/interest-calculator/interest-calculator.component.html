@@ -1,14 +1,23 @@
-<div class="container">
-  <div class="section">
-    <label for="principle">Starting Principle</label>
-    <input name="principle"/>
+<form #interestForm="ngForm" (ngSubmit)="onSubmit(interestForm)" novalidate>
+  <div class="container">
+    <div class="section">
+      <label for="principle">Starting Principle</label>
+      <input name="principle" ngModel required #principle="ngModel"/>
+    </div>
+    <div class="section"> 
+      <label for="interest">Interest Rate</label>
+      <input name="interest" ngModel required #interest="ngModel"/>
+    </div>
+    <div class="section">
+      <label for="timesCompounded">Number of Times Compounded Annually</label>
+      <input name="timesCompounded" ngModel required #timesCompounded="ngModel"/>
+    </div>
+    <div class="section">
+      <label for="term">Time Invested</label>
+      <input name="term" ngModel required #term="ngModel"/>
+    </div>
+    <input type="submit" value="Submit">
   </div>
-  <div class="section"> 
-    <label for="interest">Interest Rate</label>
-    <input name="interest"/>
-  </div>
-  <div class="section">
-    <label for="timesCompounded">Number of Times Compounded Annually</label>
-    <input name="timesCompounded"/>
-  </div>
-</div>
+</form>
+
+<p>{{ result }}</p>
