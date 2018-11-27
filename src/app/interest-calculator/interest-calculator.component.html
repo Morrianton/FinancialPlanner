@@ -1,22 +1,24 @@
-<form #interestForm="ngForm" (ngSubmit)="onSubmit(interestForm)" novalidate>
+<h2>Simple Interest Calculator</h2>
+<form #simpleInterestForm="ngForm" (ngSubmit)="onSubmit(simpleInterestForm)" novalidate>
   <div class="container">
     <div class="section">
       <label for="principle">Starting Principle</label>
-      <input name="principle" ngModel required #principle="ngModel"/>
+      <input id="principle" class="input-field" name="principle" ngModel required #principle="ngModel"/>
     </div>
     <div class="section"> 
       <label for="interest">Interest Rate</label>
-      <input name="interest" ngModel required #interest="ngModel"/>
+      <input id="interest" class="input-field" name="interest" ngModel required #interest="ngModel"/><span>%</span>
     </div>
     <div class="section">
       <label for="timesCompounded">Number of Times Compounded Annually</label>
-      <input name="timesCompounded" ngModel required #timesCompounded="ngModel"/>
+      <input id="timesCompounded" class="input-field" name="timesCompounded" ngModel required #timesCompounded="ngModel"/>
     </div>
     <div class="section">
-      <label for="term">Time Invested</label>
-      <input name="term" ngModel required #term="ngModel"/>
+      <label for="term">Years Invested</label>
+      <input id="term" class="input-field" name="term" ngModel required #term="ngModel"/>
     </div>
-    <input type="submit" value="Submit">
+    <input id="submitBtn" class="submit-btn" type="submit" value="Calculate"/>
+    <input id="resetBtn" class="reset-btn" type="reset" value="Reset" (click)="resetForm()"/>
   </div>
 </form>
 

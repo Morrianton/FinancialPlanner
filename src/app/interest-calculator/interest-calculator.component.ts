@@ -7,24 +7,32 @@ import { NgForm } from '@angular/forms';
   styleUrls: ['./interest-calculator.component.css']
 })
 export class InterestCalculatorComponent implements OnInit {
-principle = this.principle;
-interest = this.interest;
-timesCompounded = this.timesCompounded;
-term = this.term;
-result = this.result;
+principle: number = Number(this.principle);
+interest: number = Number(this.interest);
+timesCompounded: number = Number(this.timesCompounded);
+term: number = Number(this.term);
+result: string = this.result;
 
   constructor() { }
 
-  onSubmit(interestForm: NgForm) {
-    this.principle = Number(interestForm.value.principle);
-    this.interest = Number(interestForm.value.interest);
-    this.timesCompounded = Number(interestForm.value.timesCompounded);
-    this.term = Number(interestForm.value.term);
+  
+  ngOnInit() {
+  }
+
+  onSubmit(simpleInterestForm: NgForm) {
+    this.principle = simpleInterestForm.value.principle;
+    this.interest = simpleInterestForm.value.interest;
+    this.timesCompounded = simpleInterestForm.value.timesCompounded;
+    this.term = simpleInterestForm.value.term;
+
+    this.interest /= 100;
 
     this.result = (this.principle * Math.pow((1 + (this.interest/this.timesCompounded)),(this.timesCompounded * this.term))).toFixed(2);
   }
 
-  ngOnInit() {
+  resetForm() {
+    document.getElementById('principle').focus();
+    this.result = "";
   }
-
+  
 }
